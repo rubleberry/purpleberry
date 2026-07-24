@@ -3439,6 +3439,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1429802621}
   m_CullTransparentMesh: 1
+--- !u!223 &1593636184 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 5032812348853550692, guid: 78be6aa6eb9c37944a10af9d0a1ae435, type: 3}
+  m_PrefabInstance: {fileID: 8370547980488051496}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1631376891
 GameObject:
   m_ObjectHideFlags: 0
@@ -4470,25 +4475,13 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4408761543007109175, guid: 78be6aa6eb9c37944a10af9d0a1ae435, type: 3}
+      propertyPath: _unitCanavas
+      value: 
+      objectReference: {fileID: 1593636184}
     - target: {fileID: 5034499831247055177, guid: 78be6aa6eb9c37944a10af9d0a1ae435, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7894423655583570783, guid: 78be6aa6eb9c37944a10af9d0a1ae435, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7894423655583570783, guid: 78be6aa6eb9c37944a10af9d0a1ae435, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7894423655583570783, guid: 78be6aa6eb9c37944a10af9d0a1ae435, type: 3}
-      propertyPath: m_Maskable
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7894423655583570783, guid: 78be6aa6eb9c37944a10af9d0a1ae435, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
