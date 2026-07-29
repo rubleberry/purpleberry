@@ -82,12 +82,12 @@ public class PanelController : MonoBehaviour
 
     public void OnClickButton0()
     {
-        Debug.Log("Button0 on Control Panel.");
+//        Debug.Log("Button0 on Control Panel.");
         this.gameObject.SetActive(false);
     }
     public void OnClickButton1()
     {
-        Debug.Log("Button1 on Control Panel.");
+//        Debug.Log("Button1 on Control Panel.");
         this.gameObject.SetActive(false);
     }
     public void OnClickButton2()

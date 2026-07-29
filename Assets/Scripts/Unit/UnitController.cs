@@ -30,11 +30,8 @@ public class UnitController : MonoBehaviour
     private float _lightIntensity = 4;
     private float _lightRange = 2;
 
-    [SerializeField]
-    private TextMeshProUGUI _textOnUnitCanvas;
-    [SerializeField]
-    private Transform _unitCanvas;
-
+    private CanvasController _canvasController;
+    private Camera _camera;
 
     void Start()
     {
@@ -73,12 +70,22 @@ public class UnitController : MonoBehaviour
             Debug.LogError("Unit Canvas Image is Null.");
         }
 
+        _canvasController = GameObject.Find("Canvas").GetComponent<CanvasController>();
+        if (_canvasController == null)
+        {
+            Debug.LogError("Canvas Controller is Null.");
+        }
+
+        _camera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        if (_camera == null)
+        {
+            Debug.LogError("Camera is Null.");
+        }
+
+
         UnitColorSetUp();
 
         _destination = transform.position;
-
-        Instantiate(_textOnUnitCanvas, _unitCanvas).name = "testText";
-        Debug.Log(_textOnUnitCanvas);
     }
 
     private void UnitColorSetUp()
@@ -172,7 +179,11 @@ public class UnitController : MonoBehaviour
         {
             damage = 1;
         }
-        Debug.Log("DamageTaken:" + damage);
+//        Debug.Log("DamageTaken:" + damage);
+//        Debug.Log(_camera.WorldToScreenPoint(transform.position));
+        _canvasController.WriteTextOnCanvas(damage.ToString(), _camera.WorldToScreenPoint(transform.position));
+//        _canvasController.WriteTextOnCanvas(damage.ToString(), transform.position);
+
         if (this.troops > damage)
         {
             this.troops -= damage;
