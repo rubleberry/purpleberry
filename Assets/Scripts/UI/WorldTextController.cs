@@ -18,7 +18,6 @@ public class WorldTextController : MonoBehaviour
         {
             Debug.LogError("TextMesh is Null.");
         }
-        textColor = textMesh.color;
     }
 
     void Start()
@@ -27,6 +26,8 @@ public class WorldTextController : MonoBehaviour
     }
     IEnumerator FlyAndFade()
     {
+        textColor = textMesh.color;
+        Debug.Log(textColor);
         float timer = 0;
         while (timer < duration)
         {
@@ -45,7 +46,9 @@ public class WorldTextController : MonoBehaviour
             yield return null;
         }
 
-//      Destroy(gameObject);
-   }
+        textColor.a = 1;
+        textMesh.color = textColor;
+        //      Destroy(gameObject);
+    }
 
 }

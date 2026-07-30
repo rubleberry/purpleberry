@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -30,21 +31,20 @@ public class CanvasController : MonoBehaviour
             timer += Time.deltaTime;
             yield return null;
         }
-        WriteTextOnCanvas("test", _pos);
+        WriteTextOnCanvas("test again", _pos);
 
     }
     public void WriteTextOnCanvas(string text, Vector3 pos)
     {
-        TextMeshProUGUI newObj = Instantiate(_textOnCanvas);
-        newObj.text = text;
-//        newObj.transform.parent = this.transform;
-        newObj.transform.SetParent(transform);
+        TextMeshProUGUI newText = Instantiate(_textOnCanvas);
+        newText.text = text;
+        newText.color = Color.blue;
+        newText.faceColor = Color.blue;
+        newText.transform.SetParent(transform);
         RectTransform rect = this.GetComponent<RectTransform>();
-        newObj.rectTransform.position = rect.position;
-        newObj.rectTransform.anchoredPosition = newObj.rectTransform.anchoredPosition + new Vector2 (pos.x, pos.y);
-//        newObj.rectTransform.anchoredPosition = newObj.rectTransform.anchoredPosition;
-//        Debug.Log(newObj.rectTransform.position);
-//        Debug.Log(newObj.rectTransform.anchoredPosition);
-
+        newText.rectTransform.position = rect.position;
+        Vector2 centerposition = new Vector2(newText.rectTransform.anchoredPosition.x, newText.rectTransform.anchoredPosition.y);
+        newText.rectTransform.anchoredPosition = newText.rectTransform.anchoredPosition - centerposition;
+        newText.rectTransform.anchoredPosition = newText.rectTransform.anchoredPosition + new Vector2 (pos.x, pos.y);
     }
 }
