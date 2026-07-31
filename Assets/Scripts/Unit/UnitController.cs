@@ -179,10 +179,8 @@ public class UnitController : MonoBehaviour
         {
             damage = 1;
         }
-//        Debug.Log("DamageTaken:" + damage);
-//        Debug.Log(_camera.WorldToScreenPoint(transform.position));
-        _canvasController.WriteTextOnCanvas(damage.ToString(), _camera.WorldToScreenPoint(transform.position));
-//        _canvasController.WriteTextOnCanvas(damage.ToString(), transform.position);
+        _canvasController.WriteTextOnCanvas("-" + damage.ToString(),
+            _camera.WorldToScreenPoint(transform.position), Color.red);
 
         if (this.troops > damage)
         {

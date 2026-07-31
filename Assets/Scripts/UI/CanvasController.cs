@@ -7,7 +7,8 @@ using UnityEngine.UIElements;
 
 public class CanvasController : MonoBehaviour
 {
-    private Vector3 _pos;
+    private Vector3 _defaultPos;
+    private Color _defaultColor = Color.blue;
 
     [SerializeField]
     private TextMeshProUGUI _textOnCanvas;
@@ -19,7 +20,7 @@ public class CanvasController : MonoBehaviour
             Debug.LogError("TextMesh is Null.");
         }
         StartCoroutine(CountAndShow());
-        _pos = Vector3.zero;
+        _defaultPos = Vector3.zero;
     }
 
     IEnumerator CountAndShow()
@@ -31,15 +32,15 @@ public class CanvasController : MonoBehaviour
             timer += Time.deltaTime;
             yield return null;
         }
-        WriteTextOnCanvas("test again", _pos);
+        WriteTextOnCanvas("test again", _defaultPos);
 
     }
-    public void WriteTextOnCanvas(string text, Vector3 pos)
+    public void WriteTextOnCanvas(string text, Vector3 pos, Color textColor = default(Color) )
     {
         TextMeshProUGUI newText = Instantiate(_textOnCanvas);
         newText.text = text;
-        newText.color = Color.blue;
-        newText.faceColor = Color.blue;
+        newText.color = textColor;
+        newText.faceColor = textColor;
         newText.transform.SetParent(transform);
         RectTransform rect = this.GetComponent<RectTransform>();
         newText.rectTransform.position = rect.position;

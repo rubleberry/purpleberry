@@ -46,9 +46,9 @@ public class WorldTextController : MonoBehaviour
             yield return null;
         }
 
-        textColor.a = 1;
-        textMesh.color = textColor;
-        //      Destroy(gameObject);
+//        textColor.a = 1;
+//        textMesh.color = textColor;
+        Destroy(gameObject);
     }
 
 }
