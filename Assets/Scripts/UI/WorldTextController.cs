@@ -27,7 +27,6 @@ public class WorldTextController : MonoBehaviour
     IEnumerator FlyAndFade()
     {
         textColor = textMesh.color;
-        Debug.Log(textColor);
         float timer = 0;
         while (timer < duration)
         {
