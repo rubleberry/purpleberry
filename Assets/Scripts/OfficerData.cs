@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class OfficerData : MonoBehaviour
 {
-    public float battle_coef;
-
     [Serializable]
     public class officerClass
     {

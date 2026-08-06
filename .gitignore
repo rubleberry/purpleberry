@@ -105,3 +105,6 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+
+# Basic TerrainSampleAssets from Unity Asset Store
+/[Aa]ssets/TerrainSampleAssets*
