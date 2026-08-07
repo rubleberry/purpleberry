@@ -1886,7 +1886,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f465cfc4ac9b0047973765354e0e710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OfficerData
-  battle_coef: 0
   offdatainarray:
   - affiliation: 0
     name: testname
@@ -1972,8 +1971,8 @@ MonoBehaviour:
   height: 256
   scale: 30
   heightMultiplier: 3
-  offsetX: 100
-  offsetY: 100
+  offsetX: 10
+  offsetY: 10
 --- !u!1 &1015750336
 GameObject:
   m_ObjectHideFlags: 0

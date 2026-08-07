@@ -3,12 +3,12 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class TerrainGenerator : MonoBehaviour
 {
-    public int width = 256;       
+    public int width = 256;
     public int height = 256;
     public float scale = 30f;
     public float heightMultiplier = 3f;
-    public float offsetX = 100f;
-    public float offsetY = 100f;
+    public float offsetX = 10f;
+    public float offsetY = 10f;
 
     private Terrain terrain;
 
@@ -26,7 +26,7 @@ public class TerrainGenerator : MonoBehaviour
         int layers = terrainData.alphamapLayers;
 
         float[,] altitude = new float[width, height];
-        float[,,] splatmapData = new float[height, width, layers];
+        float[,,] splatmapData = new float[width, height, layers];
 
         for (int x = 0; x < width; x++)
         {
@@ -36,7 +36,7 @@ public class TerrainGenerator : MonoBehaviour
                 float yCoord = (float)y / height * scale + offsetY;
 
                 altitude[x, y] = Mathf.PerlinNoise(xCoord, yCoord);
-                splatmapData[x, y, 0] = 1;
+                splatmapData[x, y, 0] = 0;
                 splatmapData[x, y, 1] = 1;
             }
         }
@@ -57,7 +57,17 @@ public class TerrainGenerator : MonoBehaviour
             splatmapData[width - 1, y, 1] = 1;
         }
 
-        Debug.Log(altitude[0,0]);
+        for (int x = 4; x < 16; x++)
+        {
+            for (int y = 4; y < 16; y++)
+            {
+                splatmapData[x, y, 0] = 1;
+                splatmapData[x, y, 1] = 0;
+            }
+        }
+
+        Debug.Log(splatmapData[3,3,0]);
+        Debug.Log(splatmapData[3,3,1]);
 
         Debug.Log(altitude[7, 7]);
         altitude[7, 7] *= 2;
